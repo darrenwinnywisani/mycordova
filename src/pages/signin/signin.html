@@ -1,9 +1,7 @@
 <ion-header>
   <ion-navbar text-center> 
     
-    <ion-title> <ion-buttons style="float:left">
-      <button ion-button icon-only   (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
-    </ion-buttons>Sign in</ion-title>
+    <ion-title>Sign in</ion-title>
    
    
   </ion-navbar>
@@ -42,7 +40,7 @@
 </ion-item>
 
    
-  <button ion-button block round [disabled]="!userForm.valid"> SUBMIT</button>     
+  <button ion-button block round [disabled]="!userForm.valid">Signin</button>     
 
 
 <div>
@@ -51,7 +49,7 @@
 
   <br>
 <ion-item>
- <p>Have an account?<a (click)="goToSignUp()" >sign-up</a></p>
+ <p text-center>Have an account?<a (click)="goToSignUp()" >sign-up</a></p>
 </ion-item>
 
 </form>

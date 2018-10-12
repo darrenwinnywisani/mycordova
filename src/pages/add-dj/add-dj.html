@@ -1,16 +1,20 @@
 <ion-header>
 
   <ion-navbar text-center>
-    <ion-title> <ion-buttons style="float:left">
-      <button ion-button icon-only   (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
-    </ion-buttons>Add Dj details</ion-title>
+    <ion-title>Add Dj details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label fixed>Avatar</ion-label>
+    <ion-avatar item-end>
+      <img src="{{imgPreview}}" (click)="getPhoto()">
+    </ion-avatar>
+  </ion-item>
+  <button ion-button (click)="takePhoto()">Upload</button>
     <ion-item >
       <ion-label color="dark" floating >Email : </ion-label>
       <ion-icon name="person" item-left></ion-icon>

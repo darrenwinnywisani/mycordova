@@ -1,30 +1,20 @@
 <ion-header>
     <ion-navbar text-center>
-    <ion-title align="center"><ion-buttons style="float:left">
-      <button ion-button icon-only (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
-    </ion-buttons>DJ Profile</ion-title>
-    </ion-navbar>
+      <ion-title align="center"><ion-buttons style="float:left">
+        <button ion-button icon-only (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
+      </ion-buttons>DJ Profile</ion-title>
+      </ion-navbar>
   </ion-header>
   <ion-content padding>
     <ion-list   *ngFor='let dj of filteredusers; let i=index'>
- 
- <ion-item>
-        <h1>{{dj.stageName}}</h1>
-        <h2>Description:{{dj.desc}}</h2>
-        <h2>Location:{{dj.Location}}</h2>
-        <h2>Email:{{dj.email}}</h2>
-        <h2>Contact:{{dj.contact}}</h2>
- </ion-item>   
-
-</ion-list>
-  
-  <ion-grid no-padding >
-    <div class = "row" text-center>
-    <div class = "col"> <button ion-button full> <ion-icon name="logo-facebook"></ion-icon> </button></div>
-    <div class = "col"><button ion-button full color="twitter"> <ion-icon name="logo-twitter"></ion-icon> </button></div>
-    <div class = "col"><button ion-button full color="danger"> <ion-icon name="logo-instagram"></ion-icon> </button></div>
-    </div>
-  </ion-grid>
-  
+      <ion-card align="center">
+            <img src="{{dj.profile}}">
+            <h1>{{dj.stageName}}</h1>
+            <h2>Description:{{dj.desc}}</h2>
+            <h2>Location:{{dj.Location}}</h2>
+            <h2>Email:{{dj.email}}</h2>
+            <h2>Contact:{{dj.contact}}</h2>
+      </ion-card>   
+    </ion-list>
   <button ion-button block round  (click)="book()" >Booking </button>     
-  </ion-content>
+</ion-content>

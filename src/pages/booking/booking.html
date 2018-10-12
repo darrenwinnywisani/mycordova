@@ -5,18 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar text-center>
-    <ion-title>booking</ion-title>
+    <ion-title>booking {{sname}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  
   <form  [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
     <br>
-    <h3 text-center>CLIENT INFO</h3>
+    <p text-center>To: {{sentEmail}}</p>
 
     
      <ion-item [ngClass]="{'error-border':!userForm.get('Name').valid && userForm.get('Name').touched}">

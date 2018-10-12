@@ -50,7 +50,7 @@ ionViewDidLoad() {
   console.log('ionViewDidLoad  SiginPage');
 }
 goToSignUp():void {
-  this.navCtrl.setRoot(SignupPage);
+  this.navCtrl.push(SignupPage);
 } 
 
 signIn(){
@@ -61,6 +61,7 @@ signIn(){
     .then(authData=>{
       this.load.dismiss().then(()=>{
     this.navCtrl.setRoot(HomePage);
+    location.reload()
       })
     },error=>{
       this.load.dismiss().then(()=>{
@@ -82,8 +83,5 @@ signIn(){
     
   } 
   
-  goback(){
-    this.navCtrl.setRoot(HomePage);
-   }
 
 }

@@ -5,8 +5,9 @@ import { Component,NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Alert,Loading, LoadingController, AlertController, ToastController } from 'ionic-angular';
-import {HttpClient} from '@angular/common/http';
-
+import firebase, { User } from 'firebase/app';
+import 'firebase/database';
+import { SigninPage } from '../signin/signin';
 
 
 /**
@@ -24,15 +25,22 @@ import {HttpClient} from '@angular/common/http';
 export class BookingPage {
   load: any;
   userForm:FormGroup;
+  public form  : FormGroup;
   Name:string;
   email:string;
   Location:string;
+  stagename:string;
   event:string;
   Date:string;
   Time:string;
   Number:string;
   townships:string;
-  
+  Booking:firebase.database.Reference;
+  currentUser:User;
+  message:string;
+  sentEmail:any;
+  sname:string;
+  details:any;
   town=['Alice','Bellville','Benoni','Bethlehem','Bloemfontein','Boksburg','Brakpan' ,'Butterworth','Cape Town',
   'Carletonville','Constantia','Durban','East London','Emalahleni','Empangeni','Germiston','George','Giyani',
   'Graaff-Reinet','Grahamstown','Hopefield','Jagersfontein','Johannesburg','King William’s Town','Kimberley',
@@ -42,11 +50,17 @@ export class BookingPage {
   'Randfontein','Roodepoort','Rustenburg','Sasolburg','Secunda','Seshego','Sibasa','Simon’s Town','Soweto',
   'Springs','Stellenbosch','Swellendam','Thabazimbi','Uitenhage','Ulundi','Umlazi','Vanderbijlpark','Vereeniging',
   'Virginia','Welkom','Worcester','Zwelitsha', ];
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public alertCTR: AlertController,private FB:FormBuilder, private authPROV: AuthProvider,
-     private booking:BookingProvider,private http:HttpClient,private loadingCTR:LoadingController ) {
-
+     private booking:BookingProvider,private loadingCTR:LoadingController ) {
+     this.details=this.navParams.get('data');
+     this.sname=this.details[0].stageName;
+     this.sentEmail=this.details[0].email;
+     
+     console.log('sent', this.details);
+     console.log('sent', this.sname);
+     console.log('sent', this.sentEmail);
      this.userForm= this.FB.group({
 
         Name:['',Validators.compose([Validators.required,
@@ -72,25 +86,44 @@ export class BookingPage {
         Validators.pattern('[0-9]*')
          ])],
   })
-
+  
 
   }
 
   
   submit(){
- 
-  this.booking.BookingDetails(this.userForm.value.Name,this.userForm.value.email,this.userForm.value.Location,
-  this.userForm.value.event,this.userForm.value.Date,this.userForm.value.Time,this.userForm.value.Number)
-  
-    this.navCtrl.setRoot(HomePage)
-   
- 
-  }
-  
-  }
+    firebase.auth().onAuthStateChanged(user=>{
+      if(user){
+      this.currentUser=user;
+      this.Booking= firebase.database().ref(`/Booking/${user.uid}`);
+      this.booking.BookingDetails(this.userForm.value.Name,this.userForm.value.email,this.userForm.value.Location,
+        this.userForm.value.event,this.userForm.value.Date,this.userForm.value.Time,this.userForm.value.Number)
+        this.message='Hello '+this.Name;
+        this.navCtrl.setRoot(HomePage)
+      }else{
+        const alert = this.alertCTR.create({
+          subTitle: 'Please sign in first to make a booking',
+          buttons: [{
+            text:'Cancel',
+            role:'cancel'},{
+            text:'Ok',
+            handler:data=>{
+                 this.navCtrl.push(SigninPage);
+              }
+            }]
+        });
+        alert.present();
+      }
+  })
+ }
+ sendMessage() : void
+ {
+    // Retrieve the validated form fields
+    let email 		: string		= this.userForm.controls["to"].value,
+        cc 		: string		= this.userForm.controls["cc"].value,
+        bcc 		: string		= this.userForm.controls["cc"].value,
+        subject 	: string		= this.userForm.controls["subject"].value,
+        message 	: string		= this.userForm.controls["message"].value;
+}
 
-
-
-
-  
-
+}

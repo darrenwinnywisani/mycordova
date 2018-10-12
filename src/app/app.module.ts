@@ -20,7 +20,12 @@ import * as firebase from 'firebase';
 import { CatalogProvider } from '../providers/catalog/catalog';
 import { BookingProvider } from '../providers/booking/booking';
 import {RecaptchaModule} from 'ng-recaptcha';
-import { HttpClientModule } from '@angular/common/http';
+import { EmailProvider } from '../providers/email/email';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { ImageProvider } from '../providers/image/image';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
+import {Camera} from '@ionic-native/camera';
 
 
 const config = {
@@ -51,7 +56,6 @@ firebase.initializeApp(config);
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     IonicModule.forRoot(MyApp),
     RecaptchaModule
   ],
@@ -77,10 +81,17 @@ firebase.initializeApp(config);
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     ProfileProvider,
+    EmailComposer,
     AddDjProvider,
+    EmailProvider,
     CatalogProvider,
     BookingProvider,
-    BookingProvider
+    BookingProvider,
+    ImageProvider,
+    Base64,
+    Camera,
+    ImagePicker
+
   ]
 })
 export class AppModule {}

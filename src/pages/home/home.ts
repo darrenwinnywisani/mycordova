@@ -36,7 +36,7 @@ export class HomePage {
     }
  
     this.filteredusers = this.filteredusers.filter((v) => {
-      if (v.stageName.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if ((v.stageName.toLowerCase().indexOf(q.toLowerCase()) > -1)||(v.Location.toLowerCase().indexOf(q.toLowerCase()) > -1)) {
         return true;
       }
       return false;
@@ -48,4 +48,5 @@ export class HomePage {
     data:this.viewDetails
     });
   }
+  
 }

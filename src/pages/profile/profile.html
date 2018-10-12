@@ -1,36 +1,30 @@
 <ion-header>
 
   <ion-navbar text-center>
-    <ion-title> <ion-buttons style="float:left">
-      <button ion-button icon-only   (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
-    </ion-buttons>Profile</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding class="bg_content">
-  <ion-list >
-    <ion-list-header text-center> {{userProfile?.email}}
+  <!-- <ion-list *ngFor='let user of filteredusers; let i=index' >
+    <ion-list-header text-center> {{user.email}}
        </ion-list-header>
 
-       <ion-list-header text-center>{{userProfile?.firstName}}  {{userProfile?.lastName}}
-      </ion-list-header>
-      <ion-list-header text-center>{{userProfile?.Location}}
+       <ion-list-header text-center>{{user.firstName}}  {{user.lastName}}
       </ion-list-header>
     
-       
-
        <ion-item>
         <ion-grid>
           <ion-row>
             <button ion-button full   (click)="updateEmail()" padding >
-              <ion-icon class="icon4" name="md-create"></ion-icon> Update your email </button>
+             Update your email </button>
           </ion-row>
         </ion-grid>
       </ion-item>
-   
+    -->
 
-    </ion-list >
+    <!-- </ion-list > -->
   
   </ion-content>

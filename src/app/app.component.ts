@@ -3,7 +3,7 @@ import { AddDjPage } from './../pages/add-dj/add-dj';
 import { SigninPage } from './../pages/signin/signin';
 import { AuthProvider } from './../providers/auth/auth';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, AlertController } from 'ionic-angular';
+import { Nav, Platform, AlertController, LoadingController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -19,18 +19,19 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any=HomePage;
+  rootPage: any=OnboardingPage;
    isUser: any;
 
   pages: Array<{title: string, component: any,icon:any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl :AlertController,private authPROV:AuthProvider) {
+  constructor(public platform: Platform, private loadingCtrl:LoadingController,public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl :AlertController,private authPROV:AuthProvider) {
+    this.handleSplashScreen()
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
    
-
+    
 
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (!user) {
@@ -88,7 +89,7 @@ signoutConfirm() {
             this.authPROV.signOut();
           
             this.nav.setRoot(HomePage);
-            
+            location.reload()
             
           });
          
@@ -115,15 +116,32 @@ openPage(page) {
         break;
 
     default: {
-      this.nav.setRoot(page.component);
+      this.nav.push(page.component);
     }
         break;
 }
 
 }
 
+presentLoadingCustom() {
+  let loading = this.loadingCtrl.create({
+    spinner: 'hide',
+    content: `<img src="assets/img/gif.gif" />`,
+    duration: 5000
+  });
 
+  loading.onDidDismiss(() => {
+    console.log('Dismissed loading');
+  });
 
-
-
+  loading.present();
+}
+async handleSplashScreen(): Promise<void> {
+  try {
+    // wait for App to finish loading
+    await this.platform.ready()
+  } catch (error) {
+    console.error('Platform initialization bug')
+  }
+  }
 }

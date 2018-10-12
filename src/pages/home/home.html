@@ -20,10 +20,11 @@
               <div *ngIf="searchstring!=='';else message">
                 <ion-row>
                   <ion-col col-4>
-                    <img class="img" src="{{dj.IMAGE}}"/>
+                    <img class="img" src="{{dj.profile}}"/>
                     </ion-col>
                     <ion-col col-6>
                       <h2>{{dj.stageName}}</h2>
+                      <p>{{dj.Location}}</p>
                     </ion-col>
                 </ion-row>
               </div>
@@ -40,7 +41,7 @@
         <ion-row>
             <ion-col col-6 *ngFor="let dj of filteredusers; let i=index">
                 <ion-card align="center" (click)="gotoViewDetails(i)">
-                    <img class="imgs" src="{{dj.stageName}}" />
+                    <img class="imgs" src="{{dj.profile}}" />
                     <h2>{{dj.stageName}}</h2>
                 </ion-card>
             </ion-col>

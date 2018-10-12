@@ -18,34 +18,16 @@ import { IonicPage, NavController, NavParams, Alert, AlertController} from 'ioni
 })
 export class ProfilePage {
 
-
- 
-  userProfile:any;
-  email:string;
-  firstName:string;
-  lastName:string;
-  Location:string;
+  temparr=[];
+  filteredusers=[];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private authPROV:AuthProvider,private profilePROV:ProfileProvider ) {
-    this.userProfile=this.navParams.get('userProfile');
+    this.profilePROV.getallusers().then((res: any) => {
+      this.filteredusers = res;
+      this.temparr = res;
+      console.log('response',this.filteredusers)})
   }
-
-  
-  ionViewCanEnter(){
-    this.authPROV.getUserProfile().off;
-  }
-  ionViewDidLoad() {
-    this.authPROV.getUserProfile().on('value',userprofileSnapShot=>{
-      this.userProfile=userprofileSnapShot.val();
-      this.email=userprofileSnapShot.val().email;
-      this.firstName=userprofileSnapShot.val().firstName;
-      this.lastName=userprofileSnapShot.val().lastName;
-      this. Location=userprofileSnapShot.val().Location;
-      
-    })
-  }
-
   updateEmail(){
 
     const alert:Alert=this.alertCtrl.create({
@@ -79,8 +61,6 @@ export class ProfilePage {
     })
     alert.present()
     }
-    goback(){
-    this.navCtrl.setRoot(HomePage);
-   }
+ 
 
 }

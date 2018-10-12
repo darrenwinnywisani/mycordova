@@ -124,7 +124,5 @@ export class SignupPage {
             return null;
     };
 }
-  goback(){
-    this.navCtrl.setRoot(HomePage);
-   }
+
 }

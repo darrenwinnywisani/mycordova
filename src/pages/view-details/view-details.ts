@@ -22,14 +22,15 @@ export class ViewDetailsPage {
   temparr=[];
   filteredusers=[];
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private DjPROV:AddDjProvider) {
 
     this.filteredusers=this.navParams.get('data');
+
     // this.DjPROV.getallusers().then((res: any) => {
     //   this.filteredusers = res;
     //   this.temparr = res;
     //   console.log('response',this.filteredusers)})
+
   }
 
   ionViewDidLoad() {
@@ -37,7 +38,10 @@ export class ViewDetailsPage {
   }
 
   book(){
-    this.navCtrl.push(BookingPage)
+    this.navCtrl.push(BookingPage,{
+      data:this.filteredusers
+    })
+    console.log('email',this.filteredusers)
   }
 
   goback(){
