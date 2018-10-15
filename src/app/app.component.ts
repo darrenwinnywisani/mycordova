@@ -1,4 +1,4 @@
-import { OnboardingPage } from './../pages/onboarding/onboarding';
+
 import { AddDjPage } from './../pages/add-dj/add-dj';
 import { SigninPage } from './../pages/signin/signin';
 import { AuthProvider } from './../providers/auth/auth';
@@ -19,13 +19,13 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any=OnboardingPage;
+  rootPage: any=SigninPage;
    isUser: any;
 
   pages: Array<{title: string, component: any,icon:any}>;
 
   constructor(public platform: Platform, private loadingCtrl:LoadingController,public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl :AlertController,private authPROV:AuthProvider) {
-    this.handleSplashScreen()
+    // this.handleSplashScreen()
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -53,12 +53,9 @@ export class MyApp {
        
         this.pages = [
           { title: 'Home', component: HomePage, icon:'home' },
-          { title: 'Profile', component:ProfilePage,icon:'person' },
+          // { title: 'Profile', component:ProfilePage,icon:'person' },
           { title: 'Add DJ', component:AddDjPage, icon:'add' },
-          { title: 'Sign-out',component:null,icon:'log-out'}
-         
-
-         
+          { title: 'Sign-out',component:null,icon:'log-out'}      
         
         ];
         unsubscribe();
@@ -86,9 +83,9 @@ signoutConfirm() {
           console.log('Clicked signout button');
           this.authPROV.signOut().then(() => {
             this.authPROV.signOut();
-          
+            location.reload();
             this.nav.setRoot(HomePage);
-            location.reload()
+       
             
           });
          

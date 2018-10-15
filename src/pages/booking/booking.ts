@@ -101,7 +101,7 @@ export class BookingPage {
         this.userForm.value.event,this.userForm.value.Date,this.userForm.value.Time,this.userForm.value.Number)
         this.message='Hello '+this.Name;
         this.sendMessage();
-        this.navCtrl.setRoot(HomePage)
+        // this.navCtrl.setRoot(HomePage)
       }else{
         const alert = this.alertCTR.create({
           subTitle: 'Please sign in first to make a booking',
@@ -120,8 +120,8 @@ export class BookingPage {
  }
  sendMessage() : void
  {
-     this.message='Hello '+this.sname+' \n'+' '+this.Name+' '+this.Location+''+this.event+' '+this.Date+' '+this.Time;
-     this._EMAIL.sendEmail(this.sentEmail, this.event, this.message);
- }
-
+     this.message='Hello '+this.sname+"\n The event will take place:"+this.userForm.controls['Location'].value+"\n on this day:"+this.userForm.controls['Date'].value+"Time: "+this.userForm.controls['Time'].value;
+         this._EMAIL.sendEmail(this.sentEmail, this.userForm.controls['event'].value, this.message);
+      
+  }
 }

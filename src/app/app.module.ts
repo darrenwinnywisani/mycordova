@@ -3,7 +3,6 @@ import { ViewDetailsPage } from './../pages/view-details/view-details';
 import { ResetpasswordPage } from './../pages/resetpassword/resetpassword';
 import { ProfilePage } from './../pages/profile/profile';
 import { SigninPage } from './../pages/signin/signin';
-import { OnboardingPage } from './../pages/onboarding/onboarding';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -44,7 +43,6 @@ firebase.initializeApp(config);
   declarations: [
     MyApp,
     HomePage,
-    OnboardingPage,
     SigninPage,
     SignupPage,
     ProfilePage,
@@ -63,7 +61,6 @@ firebase.initializeApp(config);
   entryComponents: [
     MyApp,
     HomePage,
-    OnboardingPage,
     SigninPage,
     SignupPage,
     ProfilePage,

@@ -1,63 +1,28 @@
 page-signup {
-    .background {
-        background-image: url("../assets/imgs/back.jpg");
-        background-position: center;
+    .bg_content {
+        background-image: url("../assets/imgs/bg10.jpg");
+        //background-color: darkolivegreen;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
     }
-    .scroll-content {
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
-    .validation{
-        background: transparent;
-    }
-    .item{
-        margin-bottom: 5px;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.5);
-        border: medium none;
+    .items {
+        background-color: transparent;
+
+        color:whitesmoke;
+        .input {
      
-        .text-input, {
-            color: #fff;
+            color:whitesmoke;
+
+            //background: rgba(255, 255, 255, 0.3);
+           // border-radius: 10px;
         }
-     
-        
-        input::-moz-placeholder{
-            color: #fff!important;
+        .icon{
+            color:#488aff;
+
         }
-        input:-moz-placeholder {
-            color: #fff!important;
-        }
-        *:-moz-placeholder{
-            color: #fff!important;
-        }
-        *:-ms-input-placeholder{
-            color: #fff!important;
-        }
-        *::-webkit-input-placeholder{
-            color: #fff!important;
-        }
-     
-    }
-     
-    .icon {
-        padding-right: 10px;
-    }
-     
-    .bottom {
-        bottom: 0;
-    }
-     
-    .input-cover {
-    position: static;
-    }
-    .form{
-        box-shadow: none;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
+      }
+    #button {
+        color: whitesmoke;
+        border-radius:50px;
     }
 }

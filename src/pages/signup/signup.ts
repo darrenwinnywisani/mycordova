@@ -124,5 +124,7 @@ export class SignupPage {
             return null;
     };
 }
-
+gotosignup(){
+  this.navCtrl.push(SignupPage);
+}
 }

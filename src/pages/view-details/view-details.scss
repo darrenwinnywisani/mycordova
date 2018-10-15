@@ -1,7 +1,10 @@
 page-view-details {
-    .background {
-        background-image: url("../assets/imgs/back.jpg");
-        background-position: center;
+
+
+        .bg_content {
+        background-image: url("../assets/imgs/bg10.jpg");
+        //background-color: darkolivegreen;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
     }
     .scroll-content {
@@ -55,7 +58,7 @@ page-view-details {
     position: static;
     }
     .card{
-        background-color: teal;
+        background-color: color($colors,primary);
         color: lightblue;
     }
     .form{

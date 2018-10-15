@@ -1,3 +1,33 @@
 page-add-dj {
+    .bg_content {
+        background-image: url("../assets/imgs/bg10.jpg");
+        //background-color: darkolivegreen;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .items {
+        background-color: transparent;
+
+        color:whitesmoke;
+        .input {
+     
+            color:whitesmoke;
+
+            //background: rgba(255, 255, 255, 0.3);
+           // border-radius: 10px;
+        }
+        .icon{
+            color:#488aff;
+
+        }
+      }
+    #button {
+        color: whitesmoke;
+        border-radius:50px;
+    }
+    #button1 {
+
+        border-radius:50px;
+    }
 
 }

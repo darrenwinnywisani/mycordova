@@ -49,9 +49,9 @@ export class SigninPage {
 ionViewDidLoad() {
   console.log('ionViewDidLoad  SiginPage');
 }
-goToSignUp():void {
+gotosignup(){
   this.navCtrl.push(SignupPage);
-} 
+}
 
 signIn(){
   if(!this.userForm.valid){
@@ -60,8 +60,8 @@ signIn(){
     this.authPROV.signIn(this.userForm.value.email,this.userForm.value.password)
     .then(authData=>{
       this.load.dismiss().then(()=>{
-    this.navCtrl.setRoot(HomePage);
-    location.reload()
+        location.reload()
+        this.navCtrl.setRoot(HomePage);
       })
     },error=>{
       this.load.dismiss().then(()=>{
