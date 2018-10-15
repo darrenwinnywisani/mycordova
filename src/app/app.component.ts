@@ -70,8 +70,7 @@ export class MyApp {
 }
 signoutConfirm() {
   let alert = this.alertCtrl.create({
-    title: 'Sign Out',
-    message: 'Are you sure you want to signout?',
+    subTitle:'Are you sure you want to signout?',
     buttons: [
       {
         text: 'Cancel',

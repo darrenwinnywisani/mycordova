@@ -1,20 +1,21 @@
 <ion-header>
-    <ion-navbar text-center>
+    <ion-navbar color="twitter" text-center>
       <ion-title align="center"><ion-buttons style="float:left">
         <button ion-button icon-only (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button>
       </ion-buttons>DJ Profile</ion-title>
       </ion-navbar>
   </ion-header>
   <ion-content padding>
-    <ion-list   *ngFor='let dj of filteredusers; let i=index'>
-      <ion-card align="center">
+    <ion-list *ngFor='let dj of filteredusers; let i=index'>
+      <ion-card class="card" align="center">
             <img src="{{dj.profile}}">
             <h1>{{dj.stageName}}</h1>
             <h2>Description:{{dj.desc}}</h2>
             <h2>Location:{{dj.Location}}</h2>
             <h2>Email:{{dj.email}}</h2>
             <h2>Contact:{{dj.contact}}</h2>
+            <h2>Genre:{{dj.genre}}</h2>
       </ion-card>   
     </ion-list>
-  <button ion-button block round  (click)="book()" >Booking </button>     
+  <button ion-button block color="twitter" (click)="book()" >Booking </button>     
 </ion-content>

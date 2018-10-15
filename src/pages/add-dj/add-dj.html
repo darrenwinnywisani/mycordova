@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar text-center>
+  <ion-navbar color="twitter" text-center>
     <ion-title>Add Dj details</ion-title>
   </ion-navbar>
 
@@ -11,13 +11,12 @@
   <ion-item>
     <ion-label fixed>Avatar</ion-label>
     <ion-avatar item-end>
-      <img src="{{imgPreview}}" (click)="getPhoto()">
+      <img src="{{imgPreview}}"  (click)="takePhoto()">
     </ion-avatar>
   </ion-item>
-  <button ion-button (click)="takePhoto()">Upload</button>
     <ion-item >
       <ion-label color="dark" floating >Email : </ion-label>
-      <ion-icon name="person" item-left></ion-icon>
+      <ion-icon name="mail" item-left></ion-icon>
       <ion-input [(ngModel)]="email" type="text" ></ion-input>
     </ion-item>
     <ion-item >
@@ -28,8 +27,16 @@
 
     <ion-item >
         <ion-label color="dark" floating >Description : </ion-label>
-        <ion-icon name="outline" item-left></ion-icon>
+        <ion-icon name="clipboard" item-left></ion-icon>
         <ion-input [(ngModel)]="desc" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genre :</ion-label>
+      <ion-icon name="musical-notes" item-left></ion-icon>
+      <ion-select  [(ngModel)]="genre" >
+      <ion-option *ngFor ="let cat of category; let i=index ">{{category[i]}}</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
@@ -42,9 +49,10 @@
     
     <ion-item >
       <ion-label color="dark" floating >Contact : </ion-label>
-      <ion-icon name="outline" item-left></ion-icon>
+      <ion-icon name="call" item-left></ion-icon>
       <ion-input [(ngModel)]="contact" type="text" ></ion-input>
-  </ion-item>  
+  </ion-item> 
+
 
   <button ion-button type="button" round  (click)="SaveUserData()">
     <ion-icon name="add"></ion-icon>

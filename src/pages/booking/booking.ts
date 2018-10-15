@@ -1,3 +1,4 @@
+import { EmailProvider } from './../../providers/email/email';
 import { BookingProvider } from './../../providers/booking/booking';
 import { HomePage } from './../home/home';
 import { AuthProvider } from './../../providers/auth/auth';
@@ -51,7 +52,7 @@ export class BookingPage {
   'Springs','Stellenbosch','Swellendam','Thabazimbi','Uitenhage','Ulundi','Umlazi','Vanderbijlpark','Vereeniging',
   'Virginia','Welkom','Worcester','Zwelitsha', ];
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor( private _EMAIL: EmailProvider,public navCtrl: NavController, public navParams: NavParams,
     public alertCTR: AlertController,private FB:FormBuilder, private authPROV: AuthProvider,
      private booking:BookingProvider,private loadingCTR:LoadingController ) {
      this.details=this.navParams.get('data');
@@ -99,6 +100,7 @@ export class BookingPage {
       this.booking.BookingDetails(this.userForm.value.Name,this.userForm.value.email,this.userForm.value.Location,
         this.userForm.value.event,this.userForm.value.Date,this.userForm.value.Time,this.userForm.value.Number)
         this.message='Hello '+this.Name;
+        this.sendMessage();
         this.navCtrl.setRoot(HomePage)
       }else{
         const alert = this.alertCTR.create({
@@ -118,12 +120,8 @@ export class BookingPage {
  }
  sendMessage() : void
  {
-    // Retrieve the validated form fields
-    let email 		: string		= this.userForm.controls["to"].value,
-        cc 		: string		= this.userForm.controls["cc"].value,
-        bcc 		: string		= this.userForm.controls["cc"].value,
-        subject 	: string		= this.userForm.controls["subject"].value,
-        message 	: string		= this.userForm.controls["message"].value;
-}
+     this.message='Hello '+this.sname+' \n'+' '+this.Name+' '+this.Location+''+this.event+' '+this.Date+' '+this.Time;
+     this._EMAIL.sendEmail(this.sentEmail, this.event, this.message);
+ }
 
 }

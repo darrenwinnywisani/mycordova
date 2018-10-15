@@ -65,10 +65,15 @@ signIn(){
       })
     },error=>{
       this.load.dismiss().then(()=>{
-        const alert :Alert = this.alertCtrl.create({
-          message:error.message,
-          buttons:[{text:'ok',role: 'cancel'}]
-        })
+        const alert = this.alertCtrl.create({
+          subTitle: 'Please check your user details or signup',
+          buttons: [{
+            text:'Ok',
+            handler:data=>{
+                
+              }
+            }]
+        });
         alert.present();
       })
     })

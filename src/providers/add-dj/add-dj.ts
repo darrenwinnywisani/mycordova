@@ -29,8 +29,8 @@ export class AddDjProvider {
     return this.DjProfile;
   }
 
-  updateNames(email:string,stageName:string,desc:string,contact:string,Location:string):Promise<any>{
-     return this.DjProfile.update({email,stageName,desc,contact,Location})
+  updateNames(email:string,stageName:string,desc:string,contact:string,Location:string,genre:string):Promise<any>{
+     return this.DjProfile.update({email,stageName,desc,contact,Location,genre})
   }
   getallusers() {
     var promise = new Promise((resolve, reject) => {

@@ -23,19 +23,21 @@ import { ImageProvider } from '../../providers/image/image';
 })
 export class AddDjPage {
 
-  stageName:string;
-  email:string;
-  contact:string;
-  desc:string;
-  Location:string;
+  stageName:string='';
+  email:string='';
+  contact:string='';
+  desc:string='';
+  Location:string='';
   private load:Loading;
   private loading: any
-  imgPreview = 'assets/imgs/logo.png';
+  imgPreview = 'assets/imgs/chatterplace.png';
   regData = { avatar: '' };
   firebaseRef: firebase.database.Reference;
   picture: string = null;
   townships:string;
+  cat:string;
   currentUser:User;
+  genre:string = '';
 
   town=['Alice','Bellville','Benoni','Bethlehem','Bloemfontein','Boksburg','Brakpan' ,'Butterworth','Cape Town',
   'Carletonville','Constantia','Durban','East London','Emalahleni','Empangeni','Germiston','George','Giyani',
@@ -46,6 +48,8 @@ export class AddDjPage {
   'Randfontein','Roodepoort','Rustenburg','Sasolburg','Secunda','Seshego','Sibasa','Simon’s Town','Soweto',
   'Springs','Stellenbosch','Swellendam','Thabazimbi','Uitenhage','Ulundi','Umlazi','Vanderbijlpark','Vereeniging',
   'Virginia','Welkom','Worcester','Zwelitsha', ];
+
+  category =['House','Deep House','Hip Pop','Afro Pop','Soul','Rnb'];
 
   constructor(public navCtrl: NavController, private loadingCtrl:LoadingController,
     private alertCtrl:AlertController,private djPROV:AddDjProvider, private imagePicker: ImagePicker,
@@ -62,33 +66,33 @@ export class AddDjPage {
   }
 
   
-  updateDjD(email,stageName,desc,contact,Location){
-      this.djPROV.updateNames(this.email,this.stageName,this.desc,this.contact,this.Location)
+  updateDjD(email,stageName,desc,contact,Location,genre){
+      this.djPROV.updateNames(this.email,this.stageName,this.desc,this.contact,this.Location,this.genre)
      
   }
 
   SaveUserData(){
-  if(this.email === '' || this.stageName==='' || this.desc==='' || this.contact==='' || this.Location==='' ){
-  const alertName:Alert =this.alertCtrl.create({
-  subTitle:'Please provide your names in full',
-    buttons:[{
-    text:'Cancel',
-    role:'cancel'
-          },
-          {
-     text:'ok',
-    handler:data=>{
-              
-            }
-          }]
+  if(this.email === '' || this.stageName==='' || this.desc ==='' || this.contact ==='' || this.Location ===''|| this.genre===''  ){
+    const alertName:Alert =this.alertCtrl.create({
+    subTitle:'Please provide all your details',
+    buttons:[{text:'ok'}]
         })
-  alertName.present();
+         alertName.present();
     }
-    else{
-    this.djPROV.updateNames(this.email,this.stageName,this.desc,this.contact,this.Location);
-    this.navCtrl.setRoot(HomePage);
-    }
+  else{  
+
+    this.djPROV.updateNames(this.email,this.stageName,this.desc,this.contact,this.Location,this.genre);
+ 
+    const alertName:Alert =this.alertCtrl.create({
+      subTitle:'You have successfully added your DJ page',
+      buttons:[{text:'ok'}]
+          })
+     alertName.present();
+     this.navCtrl.setRoot(HomePage);
+  }
+ 
 }
+
 takePhoto() {
   this.camera.getPicture({
     quality: 95,

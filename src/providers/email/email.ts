@@ -13,12 +13,7 @@ export class EmailProvider {
   constructor(private email: EmailComposer) {
     console.log('Hello EmailProvider Provider');
   }
-  sendEmail(to         : string,
-    cc         : string,
-    bcc        : string,
-    attachment : string,
-    subject    : string,
-    body       : string) : void
+sendEmail(to:string,subject:string,body:string) : void
 {
 // Use the plugin isAvailable method to check whether
 // the user has configured an email account
@@ -37,14 +32,9 @@ this.email.hasPermission()
    // default mail fields when a new message
    // is created
    let email : any = {
-      app 			: 'vinylDJ',
+      app 		: 'vinylDJ app',
       to 			: to,
-      cc 			: cc,
-      bcc 			: bcc,
-      attachments 	: [
-        attachment
-      ],
-      subject 		: subject,
+      subject : subject,
       body 		: body
    };
 

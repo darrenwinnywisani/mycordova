@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="twitter">
         <button ion-button menuToggle *ngIf="!isSearchbarOpened">
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -13,38 +13,39 @@
       </ion-buttons>
       </ion-navbar>
   </ion-header>
-  <ion-content padding>
+  <ion-content padding class="background">
       <div align="center" class="search" *ngIf="isSearchbarOpened;">
-          <ion-list *ngFor="let dj of filteredusers; let i=index">
+        <div *ngIf="searchstring===''">
+          <p>No search results found</p>
+        </div>
+        <ion-list *ngFor="let dj of filteredusers; let i=index">
             <ion-item (click)="gotoViewDetails(i)">
-              <div *ngIf="searchstring!=='';else message">
+              <div *ngIf="searchstring!==''">
                 <ion-row>
-                  <ion-col col-4>
+                  <ion-col col-5>
                     <img class="img" src="{{dj.profile}}"/>
                     </ion-col>
-                    <ion-col col-6>
+                    <ion-col col-6 >
                       <h2>{{dj.stageName}}</h2>
                       <p>{{dj.Location}}</p>
+                      <p>{{dj.genre}}</p>
                     </ion-col>
                 </ion-row>
               </div>
-              <ng-template #message>
-                <div *ngIf="searchstring!=='dj.stageName'&& searchstring!==''">
-                    <p>Search Results not found</p>
-                </div>
-              </ng-template>
             </ion-item>
           </ion-list>
-         
       </div>   
       <div *ngIf="!isSearchbarOpened">
         <ion-row>
             <ion-col col-6 *ngFor="let dj of filteredusers; let i=index">
-                <ion-card align="center" (click)="gotoViewDetails(i)">
+                <ion-card class="card" align="center" (click)="gotoViewDetails(i)">
                     <img class="imgs" src="{{dj.profile}}" />
-                    <h2>{{dj.stageName}}</h2>
+                    <h2 style="color:white;font-family: Arial, sans-serif">{{dj.stageName}}</h2>
+                    <p>{{dj.genre}}</p>
+                    <p class="pnum">{{i+1}}</p>
                 </ion-card>
             </ion-col>
         </ion-row>
       </div>
+      
   </ion-content>

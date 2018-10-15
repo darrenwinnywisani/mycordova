@@ -1,57 +1,39 @@
 <ion-header>
-  <ion-navbar text-center> 
-    
+  <ion-navbar color="twitter" text-center> 
     <ion-title>Sign in</ion-title>
-   
-   
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="background">
 
-  
-  <form [formGroup]="userForm" (ngSubmit)="signIn()" novalidate>
-    
-  <ion-item  class="item" [ngClass]="{'error-border':!userForm.get('email').valid && userForm.get('email').touched}">
+ <div class="form"> 
+  <form [formGroup]="userForm" (ngSubmit)="signIn()" novalidate> 
+  <ion-item  class="items" [ngClass]="{'error-border':!userForm.get('email').valid && userForm.get('email').touched}">
   <ion-icon name="mail" item-left></ion-icon>
   <ion-label floating>Email</ion-label>
   <ion-input type="email" formControlName="email"></ion-input>
 </ion-item>
 
-<ion-item *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched" class="invalid">
+<div *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched" class="invalid">
   <p ion-text color="danger">Email field is required!</p>
-  </ion-item>
+</div>
   <ion-item *ngIf="userForm.get('email').hasError('minlength') && userForm.get('email').touched" class="invalid">
   <p ion-text color="danger">* Enter a valid Email with 10 or more characters!</p>
   </ion-item>
-
   <ion-item  class="item"  [ngClass]="{'error-border':!userForm.get('password').valid && userForm.get('password').touched}">
   <ion-icon name="lock"item-left></ion-icon>
   <ion-label floating>Password</ion-label>
   <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
-
-<ion-item *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched" class="invalid">
+<div *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched" class="invalid">
   <p ion-text color="danger">* Password is required!</p>
-</ion-item>
-
-<ion-item   *ngIf="userForm.get('password').hasError('minlength') && userForm.get('password').touched" class="invalid">
-<p ion-text color="danger">* Password minimum length is 6!</p>
-</ion-item>
-
-   
-  <button ion-button block round [disabled]="!userForm.valid">Signin</button>     
-
-
-<div>
-<p>Forgot Password?<a (click)="forgotPassword()">Reset</a></p>
 </div>
-
-  <br>
-<ion-item>
- <p text-center>Have an account?<a (click)="goToSignUp()" >sign-up</a></p>
-</ion-item>
-
+<div class="validation" *ngIf="userForm.get('password').hasError('minlength') && userForm.get('password').touched" class="invalid">
+<p ion-text color="danger">* Password minimum length is 6!</p>
+</div>
+  <button ion-button block color="twitter" round [disabled]="!userForm.valid">Signin</button>     
+<p style="color:white;font-family:Arial, sans-serif">Forgot Password?<a style="color:lime" (click)="forgotPassword()">Reset</a></p>
+ <p style="color:white;font-family:Arial, sans-serif" text-center>Have an account?<a style="color:lime" (click)="goToSignUp()" >sign-up</a></p>
 </form>
-
+</div>
 </ion-content>

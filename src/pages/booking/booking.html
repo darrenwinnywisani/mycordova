@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar text-center>
+  <ion-navbar color="twitter" text-center>
     <ion-title>booking {{sname}}</ion-title>
   </ion-navbar>
 
@@ -13,7 +13,7 @@
 
 
 <ion-content padding>
-  
+    <div class="form"> 
   <form  [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
     <br>
     <p text-center>To: {{sentEmail}}</p>
@@ -126,9 +126,10 @@
   
    
     <div padding text-center>
-    <button ion-button round >SUBMIT</button>     
+    <button ion-button round color="twitter">SUBMIT</button>     
     </div>
     
     
     </form>
+  </div>
 </ion-content>

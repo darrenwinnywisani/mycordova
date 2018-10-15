@@ -1,4 +1,7 @@
 page-home {
+    background{
+        background-image: url()
+    }
     .search{
         background-color: white;
     }
@@ -6,9 +9,18 @@ page-home {
         height:110px;
         width: 150px;
     }
+    .card{
+        background-color: teal;
+    }
     .img{
         border-radius:50%;
          height: 90px;
          width: 100px; 
+    }
+    .pnum{
+        position: relative;
+        padding:5px;
+        background-color:teal;
+        color:white;
     }
 }

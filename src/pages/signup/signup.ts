@@ -85,23 +85,23 @@ export class SignupPage {
      .then(() => {
      this.userForm.reset();
        })
-       let alert:Alert =this.alertCTR.create({
-        message:"Congratulations",
-        buttons:[{
-          text:'OK',
+       const alert = this.alertCTR.create({
+        subTitle:"Welcome to the world of DJ's",
+        buttons: [{
+          text:'Ok',
           handler:data=>{
-          this.navCtrl.setRoot(SigninPage)
-          }
-      
-        }]
-       })
+            this.navCtrl.setRoot(HomePage)
+            }
+          }]
+      })
        alert.present();
     
     })
       },error=>{
         this.load.dismiss().then(()=>{
-        const alert :Alert = this.alertCTR.create({
-        message:error.message,
+          
+        const alert = this.alertCTR.create({
+        subTitle:'The email is alread in use by another account',
         buttons:[{text:'ok',role:'cancel'}]
           })
 
