@@ -48,5 +48,8 @@ export class HomePage {
     data:this.viewDetails
     });
   }
+  addDJ(){
+    this.navCtrl.push(AddDjPage);
+  }
   
 }

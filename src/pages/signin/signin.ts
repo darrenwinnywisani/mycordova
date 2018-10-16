@@ -57,10 +57,15 @@ signIn(){
   if(!this.userForm.valid){
   console.log(this.userForm.valid)
   }else{
+    let loading = this.loadingCtrl.create({
+      content: 'Logging...'
+    });
+  
+    loading.present();
     this.authPROV.signIn(this.userForm.value.email,this.userForm.value.password)
     .then(authData=>{
+      loading.dismiss();
       this.load.dismiss().then(()=>{
-        location.reload()
         this.navCtrl.setRoot(HomePage);
       })
     },error=>{
@@ -78,7 +83,6 @@ signIn(){
       })
     })
     this.load=this.loadingCtrl.create();
-    this.load.present()
     }
   }
  

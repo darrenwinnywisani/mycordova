@@ -71,7 +71,7 @@ export class SignupPage {
  
       }
 
-
+  
    signUp(){
      if(!this.userForm.valid){
      console.log(this.userForm.valid);
@@ -112,6 +112,9 @@ export class SignupPage {
       this.load = this.loadingCTR.create();
       this.load.present();
     }
+  }
+  gotosignin(){
+    this.navCtrl.push(SigninPage);
   }
 
   equalto(field_name): ValidatorFn {

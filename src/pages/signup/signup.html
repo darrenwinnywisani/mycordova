@@ -1,18 +1,9 @@
-<ion-header>
-  <ion-navbar text-center color="primary">
-      <ion-title>Create account</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding class="bg_content">
 
   <form [formGroup]="userForm" (ngSubmit)="signUp()" novalidate>
 
       <ion-item  class="items" [ngClass]="{'error-border':!userForm.get('firstName').valid && userForm.get('firstName').touched}">
           <ion-label floating> Firstname</ion-label>
-          <ion-icon name="person" item-left></ion-icon>
           <ion-input formControlName="firstName" type="text">
           </ion-input>
       </ion-item>
@@ -30,7 +21,6 @@
 
       <ion-item  class="items" [ngClass]="{'error-border':!userForm.get('lastName').valid && userForm.get('lastName').touched}">
           <ion-label floating>Lastname </ion-label>
-          <ion-icon name="person" item-left></ion-icon>
           <ion-input formControlName="lastName" type="text">
           </ion-input>
       </ion-item>
@@ -48,7 +38,6 @@
 
       <ion-item class="items" [ngClass]="{'error-border':!userForm.get('email').valid && userForm.get('email').touched}">
           <ion-label floating>Email</ion-label>
-          <ion-icon name="mail" item-left></ion-icon>
           <ion-input formControlName="email" type="email"> </ion-input>
       </ion-item>
 
@@ -63,7 +52,6 @@
 
       <ion-item class="items" [ngClass]="{'error-border':!userForm.get('password').valid && userForm.get('password').touched}">
           <ion-label floating>Password</ion-label>
-          <ion-icon name="lock" item-left></ion-icon>
           <ion-input formControlName="password" type="password">
           </ion-input>
       </ion-item>
@@ -78,7 +66,6 @@
 
       <ion-item class="items" [ngClass]="{'error-border':!userForm.get('confirm').valid && userForm.get('confirm').touched}">
           <ion-label floating>Confirm Password </ion-label>
-          <ion-icon name="lock" item-left></ion-icon>
           <ion-input formControlName="confirm" type="password">
           </ion-input>
       </ion-item>
@@ -97,9 +84,11 @@
       <br/>
 
       <div padding text-center>
-          <button ion-button block full id="button" (click)="gotosignup()" color="primary" [disabled]="!userForm.valid"> Signup</button>
+          <button ion-button block full round id="button" (click)="gotosignup()" color="primary" [disabled]="!userForm.valid"> Signup</button>
       </div>
-
+      <div  style="text-align:center" padding>
+        <p style="color:#4d606e" class="p">Or, <a style="color:#3fbac2"(click)="gotosignin()">Log in</a></p>
+    </div>
   </form>
 
 

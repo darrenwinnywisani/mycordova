@@ -20,7 +20,7 @@
 
     
       <ion-fab bottom right color="secondary">
-          <button ion-fab><ion-icon name="add"></ion-icon></button>
+          <button ion-fab (click)=" addDJ()"><ion-icon name="add"></ion-icon></button>
         </ion-fab>
       <div align="center" class="search" *ngIf="isSearchbarOpened;">
         <div *ngIf="searchstring===''">
