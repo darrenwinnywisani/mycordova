@@ -19,7 +19,7 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any= SigninPage;
+  rootPage: any= HomePage;
 
   constructor(public platform: Platform, private loadingCtrl:LoadingController,public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl :AlertController,private authPROV:AuthProvider) {
     // this.handleSplashScreen()

@@ -99,7 +99,7 @@ takePhoto() {
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.PNG,
     saveToPhotoAlbum: true,
-    targetHeight: 500,
+    targetHeight: 800,
     targetWidth: 500,
     allowEdit: true,
     correctOrientation: true,

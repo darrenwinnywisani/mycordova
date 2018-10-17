@@ -1,21 +1,34 @@
 page-home {
-    background{
-        background-image: url()
+    .background{
+        // background-color:#020438;
+    }
+    .slide{
+        padding:2px;
     }
     .search{
         background-color: white;
     }
     .imgs{
-        height:110px;
-        width: 150px;
+        height:200%;
+        width: 100%;
     }
-    .card{
-        background-color:#488aff ;
+    .item{
+        background-color: white;
+        background-size: 100% 100%;
+        padding:10px;
+        border-radius: 10px;
+        .h1{
+            align-content: center;
+            align-items: center;
+            color:black;
+        }
+
+       
     }
     .img{
-        border-radius:50%;
-         height: 90px;
-         width: 100px; 
+         border-radius:50%;
+         height: 50%;
+         width: 50%; 
     }
     .pnum{
         position: relative;

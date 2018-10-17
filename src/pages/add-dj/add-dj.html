@@ -8,12 +8,9 @@
 
 
 <ion-content padding class="bg_content" >
-  <ion-item class="items">
-    <ion-label floating></ion-label>
-    <ion-avatar item-end>
-      <img src="{{imgPreview}}"  (click)="takePhoto()">
-    </ion-avatar>
-  </ion-item>
+    <div class="picture" align="center">
+      <img src="{{imgPreview}}" (click)="takePhoto()">
+    </div>
     <ion-item class="items">
       <ion-label  floating >Email : </ion-label>
       <ion-icon class="icon" name="mail" item-left></ion-icon>

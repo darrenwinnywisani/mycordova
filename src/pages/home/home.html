@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
       <ion-title *ngIf="!isSearchbarOpened">Home</ion-title>
       <!-- <ion-searchbar [(ngModel)]="searchDj" (ionInput)="setFilteredDj()" *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar> -->
       <ion-searchbar [(ngModel)]="searchstring" (input)="searchDJ($event)" *ngIf="isSearchbarOpened" palceholder="Search" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
@@ -30,10 +30,7 @@
             <ion-item (click)="gotoViewDetails(i)">
               <div *ngIf="searchstring!==''">
                 <ion-row>
-                  <ion-col col-5>
-                    <img class="img" src="{{dj.profile}}"/>
-                    </ion-col>
-                    <ion-col col-6 >
+                    <ion-col >
                       <h2>{{dj.stageName}}</h2>
                       <p>{{dj.Location}}</p>
                       <p>{{dj.genre}}</p>
@@ -42,21 +39,12 @@
               </div>
             </ion-item>
           </ion-list>
-      </div>   
-      <div *ngIf="!isSearchbarOpened">
-        <ion-row>
-
-            <ion-col col-6 *ngFor="let dj of filteredusers; let i=index">
-                <ion-card class="card" align="center" (click)="gotoViewDetails(i)">
-                    <img class="imgs" src="{{dj.profile}}" />
-                    <p class="pnum" style="float:left;" >{{i+1}}</p> 
-                    <h2 style="color:white;font-family: Arial, sans-serif;padding:5px;"> {{dj.stageName}}</h2>
-                    <p>{{dj.genre}}</p>
-                   
-                </ion-card>
-            </ion-col>
-        </ion-row>
-      </div>
-
-      
+      </div>  
+      <div *ngIf="!isSearchbarOpened;">
+          <ion-list>
+              <button ion-item inset *ngFor="let genres of genre; let i=index" (click)="sortedByGenre()">
+                  {{genres.music}}
+              </button>  
+          </ion-list>
+      </div> 
   </ion-content>
