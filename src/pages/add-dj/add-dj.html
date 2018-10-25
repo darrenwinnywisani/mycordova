@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Add Dj details</ion-title>
+    <ion-title text-center>Add Dj details</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,27 +10,28 @@
 <ion-content padding class="bg_content" >
     <div class="picture" align="center">
       <img src="{{imgPreview}}" (click)="takePhoto()">
+      <!-- <ion-icon name="camera" (click)="takePhoto()"></ion-icon> -->
     </div>
     <ion-item class="items">
       <ion-label  floating >Email : </ion-label>
-      <ion-icon class="icon" name="mail" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="mail" item-left></ion-icon> -->
       <ion-input [(ngModel)]="email" type="text" ></ion-input>
     </ion-item>
     <ion-item class="items" >
       <ion-label  floating >Stage Name: </ion-label>
-      <ion-icon class="icon" name="person" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="person" item-left></ion-icon> -->
       <ion-input [(ngModel)]="stageName" type="text" ></ion-input>
     </ion-item>
 
     <ion-item class="items" >
         <ion-label  floating >Description : </ion-label>
-        <ion-icon class="icon" name="clipboard" item-left></ion-icon>
+        <!-- <ion-icon class="icon" name="clipboard" item-left></ion-icon> -->
         <ion-input [(ngModel)]="desc" type="text" ></ion-input>
     </ion-item>
 
     <ion-item class="items">
       <ion-label>Genre :</ion-label>
-      <ion-icon class="icon" name="musical-notes" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="musical-notes" item-left></ion-icon> -->
       <ion-select  [(ngModel)]="genre" >
       <ion-option *ngFor ="let cat of category; let i=index ">{{category[i]}}</ion-option>
       </ion-select>
@@ -38,7 +39,7 @@
 
     <ion-item class="items">
       <ion-label>Location</ion-label>
-      <ion-icon class="icon" name="pin" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="pin" item-left></ion-icon> -->
       <ion-select  [(ngModel)]="Location" >
       <ion-option *ngFor ="let townships of town; let i=index ">{{town[i]}}</ion-option>
       </ion-select>
@@ -46,7 +47,7 @@
     
     <ion-item class="items">
       <ion-label floating >Contact : </ion-label>
-      <ion-icon class="icon" name="call" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="call" item-left></ion-icon> -->
       <ion-input [(ngModel)]="contact" type="text" ></ion-input>
   </ion-item> 
 

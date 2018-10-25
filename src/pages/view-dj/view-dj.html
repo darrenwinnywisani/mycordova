@@ -1,10 +1,10 @@
-<!--
+<!-- 
   Generated template for the ViewDjPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>view-dj</ion-title>
@@ -24,4 +24,60 @@
       </ion-slide>
     </ion-slides>
   </div>
+</ion-content> -->
+
+
+
+<!--
+  Generated template for the ViewDjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" text-center>
+      <ion-title *ngIf="!isSearchbarOpened"><ion-buttons style="float:left">
+        <!-- <button ion-button icon-only (click)="goback()" ><ion-icon name="md-arrow-round-back"></ion-icon></button> -->
+      </ion-buttons>{{categoty}}</ion-title>
+      <!-- <ion-searchbar [(ngModel)]="searchstring" (input)="searchDJ($event)" *ngIf="isSearchbarOpened" palceholder="Search" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+      <ion-buttons end>
+        <button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+          <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="content">
+<!-- <ion-fab bottom right color="secondary">
+    <button ion-fab (click)="addDJ()"><ion-icon name="add"></ion-icon></button>
+</ion-fab> -->
+<!-- <div align="center" class="search" *ngIf="isSearchbarOpened;">
+  <ion-list *ngFor="let dj of filteredusers; let i=index">
+      <ion-item (click)="gotoViewDetails(i)">
+        <div *ngIf="searchstring!==''">
+          <ion-row>
+              <ion-col >
+                <h2>{{dj.stageName}}</h2>
+                <p>{{dj.Location}}</p>
+                <p>{{dj.genre}}</p>
+              
+              </ion-col>
+          </ion-row>
+        </div>
+      </ion-item>
+    </ion-list>
+</div>   -->
+<div class="slide">
+  <ion-slides>
+    <ion-slide *ngFor="let dj of DJGenre; let i=index">
+        <h2 style="color:#4d606e">{{dj.stageName}}</h2>
+      <ion-card (click)="gotoDetails(i)">
+        <img class="imgs" src="{{dj.profile}}" />
+        <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</div>
 </ion-content>

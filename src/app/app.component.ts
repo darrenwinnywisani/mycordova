@@ -1,4 +1,5 @@
 
+
 import { AddDjPage } from './../pages/add-dj/add-dj';
 import { SigninPage } from './../pages/signin/signin';
 import { AuthProvider } from './../providers/auth/auth';
@@ -10,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import * as firebase from 'firebase';
 import { ProfilePage } from '../pages/profile/profile';
+import { SplashPage } from '../pages/splash/splash';
 
 
 
@@ -19,7 +21,7 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any= HomePage;
+  rootPage: any= SplashPage;
 
   constructor(public platform: Platform, private loadingCtrl:LoadingController,public statusBar: StatusBar, public splashScreen: SplashScreen,public alertCtrl :AlertController,private authPROV:AuthProvider) {
     // this.handleSplashScreen()

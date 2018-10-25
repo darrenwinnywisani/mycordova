@@ -91,6 +91,8 @@ signIn(){
       this.navCtrl.push(ResetpasswordPage);
     
   } 
-  
+  guest(){
+    this.navCtrl.setRoot(HomePage);
+  }
 
 }

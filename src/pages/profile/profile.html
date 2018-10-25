@@ -1,30 +1,89 @@
-<ion-header>
-
-  <ion-navbar color="twitter" text-center>
-    <ion-title>Profile</ion-title>
+ <ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title text-center>Update Profile</ion-title>
+    
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding class="bg_content">
-  <!-- <ion-list *ngFor='let user of filteredusers; let i=index' >
-    <ion-list-header text-center> {{user.email}}
-       </ion-list-header>
-
+<!--<ion-content padding >
+ <ion-list *ngFor='let user of filteredusers; let i=index' no-lines>
        <ion-list-header text-center>{{user.firstName}}  {{user.lastName}}
       </ion-list-header>
-    
-       <ion-item>
-        <ion-grid>
-          <ion-row>
-            <button ion-button full   (click)="updateEmail()" padding >
-             Update your email </button>
-          </ion-row>
-        </ion-grid>
+      <ion-item class="items" >
+        <ion-label floating text-center>{{user.email}}</ion-label>
+        <ion-input class="input" [(ngModel)]="email" type="email" ></ion-input>
       </ion-item>
-    -->
+   </ion-list >
+  </ion-content> -->
+  <ion-content padding class="bg_content">
 
-    <!-- </ion-list > -->
+    <form [formGroup]="userForm" (ngSubmit)="signUp()" novalidate>
   
+        <ion-item class="items" [ngClass]="{'error-border':!userForm.get('email').valid && userForm.get('email').touched}">
+            <ion-label floating>Old Email</ion-label>
+            <ion-input formControlName="email" type="email"> </ion-input>
+        </ion-item>
+        <div padding *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched" class="invalid">
+          <p ion-text color="danger">Email field is required!</p>
+      </div>
+      <div padding *ngIf="userForm.get('email').hasError('minlength') && userForm.get('email').touched" class="invalid">
+          <p ion-text color="danger">* Enter valid Email!</p>
+      </div>
+        <ion-item class="items" [ngClass]="{'error-border':!userForm.get('email').valid && userForm.get('email').touched}">
+          <ion-label floating>New Email</ion-label>
+          <ion-input formControlName="email" type="email"> </ion-input>
+      </ion-item>
+      <div padding *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched" class="invalid">
+        <p ion-text color="danger">Email field is required!</p>
+    </div>
+    <div padding *ngIf="userForm.get('email').hasError('minlength') && userForm.get('email').touched" class="invalid">
+        <p ion-text color="danger">* Enter valid Email!</p>
+    </div>
+        <div padding text-center>
+            <button ion-button block full round id="button" (click)="gotohome()" color="primary" [disabled]="!userForm.valid">Update</button>
+        </div>
+       
+    </form>
+
+   <!-- <div *ngIf ="">  -->
+
+    <div class="picture" align="center">
+      <img src="{{imgPreview}}" (click)="takePhoto()">
+      <!-- <ion-icon name="camera" (click)="takePhoto()"></ion-icon> -->
+    </div>
+    <ion-item class="items">
+      <ion-label  floating >Email : </ion-label>
+      <ion-input [(ngModel)]="email" type="text" ></ion-input>
+    </ion-item>
+    <ion-item class="items" >
+      <ion-label  floating >Stage Name: </ion-label>
+      <ion-input [(ngModel)]="stageName" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item class="items" >
+        <ion-label  floating >Description : </ion-label>
+        <ion-input [(ngModel)]="desc" type="text" ></ion-input>
+    </ion-item>
+
+    <ion-item class="items">
+      <ion-label>Genre :</ion-label>
+      <ion-select  [(ngModel)]="genre" >
+      <ion-option *ngFor ="let cat of category; let i=index ">{{category[i]}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="items">
+      <ion-label>Location</ion-label>
+      <ion-select  [(ngModel)]="Location" >
+      <ion-option *ngFor ="let townships of town; let i=index ">{{town[i]}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item class="items">
+      <ion-label floating >Contact : </ion-label>
+      <ion-input [(ngModel)]="contact" type="text" ></ion-input>
+  </ion-item> 
+<button ion-button block round  id="button1" (click)="gotohome()" >Update</button>
+
+ <!-- </div>  -->
+
   </ion-content>

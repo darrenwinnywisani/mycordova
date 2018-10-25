@@ -1,3 +1,7 @@
+import { SplashPage } from './../pages/splash/splash';
+
+import { ViewDjPage } from './../pages/view-dj/view-dj';
+import { ProfilesPage } from './../pages/profiles/profiles';
 import { BookingPage } from './../pages/booking/booking';
 import { ViewDetailsPage } from './../pages/view-details/view-details';
 import { ResetpasswordPage } from './../pages/resetpassword/resetpassword';
@@ -25,6 +29,10 @@ import { ImageProvider } from '../providers/image/image';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import {Camera} from '@ionic-native/camera';
+import { FacebookProvider } from '../providers/facebook/facebook';
+import { HttpClientModule } from '@angular/common/http';
+import { TwitterProvider } from '../providers/twitter/twitter';
+import { InstagramProvider } from '../providers/instagram/instagram';
 
 
 const config = {
@@ -46,14 +54,19 @@ firebase.initializeApp(config);
     SigninPage,
     SignupPage,
     ProfilePage,
+    ViewDjPage,
     ResetpasswordPage,
     AddDjPage,
     ViewDetailsPage,
-    BookingPage
+    BookingPage,
+    ProfilesPage,
+    ViewDjPage,
+    SplashPage
  
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     RecaptchaModule
   ],
@@ -68,6 +81,10 @@ firebase.initializeApp(config);
     AddDjPage,
     ViewDetailsPage,
     BookingPage,
+    ProfilesPage,
+    ViewDjPage,
+    SplashPage
+  
 
 
      
@@ -87,7 +104,11 @@ firebase.initializeApp(config);
     ImageProvider,
     Base64,
     Camera,
-    ImagePicker
+    ImagePicker,
+    FacebookProvider,
+    TwitterProvider,
+    InstagramProvider,
+    
 
   ]
 })

@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="primary" text-center>
-    <ion-title>booking {{sname}}</ion-title>
+    <ion-title text-center>booking {{sname}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,7 +21,7 @@
     
      <ion-item class="items" [ngClass]="{'error-border':!userForm.get('Name').valid && userForm.get('Name').touched}">
       <ion-label  floating >Name</ion-label>
-      <ion-icon class="icon" name="person" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="person" item-left></ion-icon> -->
       <ion-input formControlName="Name" type="text">
       </ion-input>
       </ion-item>
@@ -40,7 +40,7 @@
 
       <ion-item  class="items" [ngClass]="{'error-border':!userForm.get('Number').valid && userForm.get('Number').touched}">
       <ion-label  floating >Contact Number</ion-label>
-      <ion-icon class="icon" name="call" item-left></ion-icon>
+      <!-- <ion-icon class="icon" name="call" item-left></ion-icon> -->
       <ion-input type="tel" maxlength="10" formControlName="Number"></ion-input>
       </ion-item>
         
@@ -59,7 +59,7 @@
     
     <ion-item class="items" [ngClass]="{'error-border':!userForm.get('Date').valid && userForm.get('Date').touched}">
     <ion-label  floating >Date</ion-label>
-    <ion-icon class="icon" name="calendar" item-left></ion-icon>
+    <!-- <ion-icon class="icon" name="calendar" item-left></ion-icon> -->
      <ion-datetime displayformat="DD/MM/YYYY" pickerformat="DD/MM/YYYY" min="2017-12-31" max="2020"  formControlName="Date"></ion-datetime>
     </ion-item>
     
@@ -69,7 +69,7 @@
     
     <ion-item  class="items" [ngClass]="{'error-border':!userForm.get('Time').valid && userForm.get('Time').touched}">
     <ion-label floating >Time</ion-label>
-    <ion-icon class="icon" name="time" item-left></ion-icon>
+    <!-- <ion-icon class="icon" name="time" item-left></ion-icon> -->
     <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="Time"></ion-datetime>
     </ion-item>
     
@@ -81,7 +81,7 @@
 <br>
 <ion-item class="items" [ngClass]="{'error-border':!userForm.get('Location').valid && userForm.get('Location').touched}">
   <ion-label>Location</ion-label>
-  <ion-icon class="icon" name="pin" item-left></ion-icon>
+  <!-- <ion-icon class="icon" name="pin" item-left></ion-icon> -->
   <ion-select formControlName="Location" >
   <ion-option *ngFor ="let townships of town; let i=index ">{{town[i]}}</ion-option>
   </ion-select>
@@ -95,7 +95,7 @@
       
   <ion-item class="items" [ngClass]="{'error-border':!userForm.get('event').valid && userForm.get('event').touched}">
   <ion-label >Type Of Event</ion-label>
-  <ion-icon class="icon" name="options" item-left></ion-icon>
+  <!-- <ion-icon class="icon" name="options" item-left></ion-icon> -->
   <ion-select formControlName="event"   >
   <ion-option value="wedding">Wedding</ion-option>
   <ion-option value="party">Party</ion-option>

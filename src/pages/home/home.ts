@@ -1,3 +1,6 @@
+import { AuthProvider } from './../../providers/auth/auth';
+import { ProfilesPage } from './../profiles/profiles';
+import { ProfilePage } from './../profile/profile';
 import { CatalogProvider } from './../../providers/catalog/catalog';
 import { ViewDetailsPage } from './../view-details/view-details';
 import { AddDjPage } from './../add-dj/add-dj';
@@ -5,6 +8,8 @@ import { AddDjProvider } from './../../providers/add-dj/add-dj';
 import { Component } from '@angular/core';
 import { NavController, NavParams, Alert, AlertController } from 'ionic-angular';
 import { ViewDjPage } from '../view-dj/view-dj';
+import { SigninPage } from '../signin/signin';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -21,9 +26,11 @@ export class HomePage {
   temparr=[];
   viewDetails=[];
   genre=[];
-
+  category=[];
+  arrGenre=[];
+  genres:string='';
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private DjPROV: AddDjProvider, public alertCtrl: AlertController, private catProv: CatalogProvider) {
+    private DjPROV: AddDjProvider, private authPROV:AuthProvider, public alertCtrl: AlertController, private catProv: CatalogProvider) {
       this.DjPROV.getallusers().then((res: any) => {
         this.filteredusers = res;
         this.temparr = res;
@@ -62,10 +69,57 @@ export class HomePage {
     data:this.viewDetails
     });
   }
+  // addDJ(){
+  //   this.navCtrl.push(ProfilesPage);
+  // }
+  // profile(){
+  //   this.navCtrl.push(ProfilePage);
+  // }
+  sortedByGenre(i:number){
+    this.category=[];
+    this.category = ['Electronic music','House','Hip Pop','Gqom','Kwaito','RnB','Deep House','Commercial House','jazz','Soul','Accapella','Rock','Disco','Reggae','Gospel'];
+    this.genres=this.category[i];
+ 
+    this.navCtrl.push(ViewDjPage,{data:this.genres});
+  }
+  viewDJ(i:number){
+    this.viewDetails=[];
+    this.viewDetails.push(this.filteredusers[i]);
+    this.navCtrl.push(ViewDetailsPage,{
+      data:this.viewDetails
+    });
+  }
+
   addDJ(){
     this.navCtrl.push(AddDjPage);
   }
-  sortedByGenre(){
-    this.navCtrl.push(ViewDjPage);
+  profile(){
+    this.navCtrl.push(ProfilePage);
+  }
+
+  signoutConfirm(){
+    let alert = this.alertCtrl.create({
+      subTitle:'Are you sure you want to signout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.authPROV.signOut().then(() => {
+              this.authPROV.signOut();
+              this.navCtrl.setRoot(SigninPage);
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

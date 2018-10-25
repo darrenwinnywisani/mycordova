@@ -1,7 +1,7 @@
 page-home {
-    .background{
-        // background-color:#020438;
-    }
+    // .background{
+    //     // background-color:#020438;
+    // }
     .slide{
         padding:2px;
     }
@@ -12,6 +12,193 @@ page-home {
         height:200%;
         width: 100%;
     }
+    .House{
+        background-color:rgb(14, 92, 122);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .hipop{
+        background-color: color($colors,primary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Gqom{
+        background-color: rgb(17, 88, 105);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Kwaito{
+        background-color:color($colors,secondary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .RNB{
+        background-color:color($colors,primary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .DH{
+        background-color:rgb(17, 88, 105);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .CH{
+        background-color: rgb(14, 92, 122);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Jazz{
+        background-color: color($colors,secondary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Soul{
+        background-color: rgb(17, 88, 105);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Accapella{
+        background-color:color($colors,primary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Rock{
+        background-color: rgb(14, 92, 122);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Disco{
+        background-color:rgb(17, 88, 105);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Reggae{
+        background-color:color($colors,primary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+    .Gospel{
+        background-color:color($colors,secondary);
+        padding:20px;
+        border-radius: 10px;
+        .card-header{
+            font-size: x-large;
+            color: white
+        }
+        .icon{
+            color: white;
+            size: 50px;
+        }
+    }
+}
+.scoll-content{
+    overflow:scroll;
+}
+
     .item{
         background-color: white;
         background-size: 100% 100%;
@@ -36,4 +223,3 @@ page-home {
         background-color:t#488aff;
         color:white;
     }
-}
